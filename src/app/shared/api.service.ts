@@ -11,7 +11,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   post(obj:ITask):Observable<ITask>{
-    return this.http.post<ITask>('https://calculator-c3c22-default-rtdb.firebaseio.com/todos.json', obj)
+    return this.http.post<ITask>('https://angular-material-todo-list-default-rtdb.firebaseio.com/todos.json', obj)
       .pipe(map ((res:ITask) => {
           return {
             ...obj,
@@ -22,7 +22,7 @@ export class ApiService {
   }
 
   getAll():Observable<ITask[]>{
-    return this.http.get<ITask[]>('https://calculator-c3c22-default-rtdb.firebaseio.com/todos.json')
+    return this.http.get<ITask[]>('https://angular-material-todo-list-default-rtdb.firebaseio.com/todos.json')
       .pipe( map ( res => {
 
         return Object.keys(res)
@@ -34,7 +34,7 @@ export class ApiService {
   }
 
   put(obj:ITask, id:string):Observable<ITask>{
-    return this.http.put<ITask>(`https://calculator-c3c22-default-rtdb.firebaseio.com/todos/${id}.json`, obj)
+    return this.http.put<ITask>(`https://angular-material-todo-list-default-rtdb.firebaseio.com/todos/${id}.json`, obj)
       .pipe(map (res => {
           return {
             ...obj,
@@ -45,6 +45,6 @@ export class ApiService {
   }
 
   delete( id:string):Observable<ITask>{
-    return this.http.delete<ITask>(`https://calculator-c3c22-default-rtdb.firebaseio.com/todos/${id}.json`);
+    return this.http.delete<ITask>(`https://angular-material-todo-list-default-rtdb.firebaseio.com/todos/${id}.json`);
   }
 }
