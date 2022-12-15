@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  mat-form-field {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .actions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .btn{
+      width: 40%;
+    }
+  }
+}

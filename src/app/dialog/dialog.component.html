@@ -1,0 +1,43 @@
+<div mat-dialog-title class="actions">
+  <h2>Добавить новые задачи</h2>
+  <button mat-icon-button mat-dialog-close="close" color="accent">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="formTodo">
+    <mat-form-field appearance="outline">
+      <mat-label>Короткое название</mat-label>
+      <input matInput formControlName="title" >
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Вид</mat-label>
+      <mat-select formControlName="sortHoby">
+        <mat-option value="Учёба">Учёба</mat-option>
+        <mat-option value="Отдых">Отдых</mat-option>
+        <mat-option value="Спорт">Спорт</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Выбрать дату</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Подробное описание</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-radio-group aria-label="Select an option" formControlName="radio">
+      <mat-radio-button value="Срочно">Срочно</mat-radio-button>
+      <mat-radio-button value="Не срочно">Не срочно</mat-radio-button>
+    </mat-radio-group>
+  </form>
+</div>
+<div class="actions" mat-dialog-actions >
+  <button class="btn" mat-raised-button color="primary" (click)="create()">{{actionBtn}}</button>
+  <button class="btn" mat-raised-button color="accent" mat-dialog-close="close">Отмена</button>
+</div>
